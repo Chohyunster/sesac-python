@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation-name: moveLeft;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+                }
+        @keyframes moveLeft {
+            0% { left: 0; }
+            50% {left: 400px;}
+            100% {left: 200px; }
+        }
+        .text {
+            color: black;
+            animation-name: fadeOut;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1;}
+            20% {opacity: 0;}
+        }
+        .circle{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 20%;
+            animation-name: rotateAndScale;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+
+        }
+        @keyframes rotateAndScale {
+            0% {transform: rotate(0deg) scale(1);}
+            50% {transform: rotate(100deg) scale(2);}
+        }
+
+            .image {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 20%;
+            animation-name: rotateAndScale;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out
+            }
+
+        @keyframes shake {
+            0% {transform: translateX(0)}
+            25% {transform: translateX(-10px) rotate(-5deg)}
+            75% {transform: translateX(10px) rotate(-5deg)}
+            100% {transform: translateX(0)}
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <br>
+    <p class="text">Fade out animation</p>
+    <br>
+    <div class="circle"></div>
+    <br>
+    <img class="image" src="Images/son1.jpg">
+
+    
+</body>
+</html>

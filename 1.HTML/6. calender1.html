@@ -4,6 +4,35 @@
 <head>
 <title>6월</title>
 </head>
+<style>
+  h1, h2 {
+    text-align: center;
+  }
+
+  #calendar {
+  border: 2px solid;
+  width: 100%;
+  height: 200px
+}
+#calendar th {
+  background-color: salmon;
+  padding: 5px;
+  color: red;
+  width: 14%;
+}
+
+#calendar td {
+  align: center;
+  padding: 10px;
+  width: 14%;
+}
+
+#calendar th:fisrt-child, #calendar td:fisrt-child {
+  color: red;
+}
+
+
+</style>
 
 <body>
 <center>
@@ -17,10 +46,9 @@
   </p>
 <img src="images/노을.jpg" alt="노을풍경" width="70%">
 
-<table>
-<table border="2">
+<table id="calendar">
 <tr>
-  <td width="14%" style="color:red" align="center">SUN</td>
+  <th>SUN</th>
   <td width="14%" align="center">MON</td>
   <td width="14%" align="center">TUE</td>
   <td width="14%" align="center">WED</td>
@@ -29,7 +57,7 @@
   <td width="14%" align="center">SAT</td>
 </tr>
 <tr>
-  <td></td>
+  <th></th>
   <td></td>
   <td></td>
   <td align="center">1</td>
@@ -38,7 +66,7 @@
   <td align="center">4</td>
 </tr>
 <tr>
- <td align="center" style="color:red">5</td>
+ <th align="center" style="color:red">5</th>
   <td align="center">6</td>
   <td align="center">7</td>
   <td align="center">8</td>
@@ -48,7 +76,7 @@
   </tr>
 
 <tr>
- <td align="center" style="color:red">12</td>
+ <th align="center" style="color:red">12</th>
   <td align="center">13</td>
   <td align="center">14</td>
   <td align="center">15</td>
@@ -58,7 +86,7 @@
   </tr>
 
 <tr>
- <td align="center" style="color:red">19</td>
+ <th align="center" style="color:red">19</th>
   <td align="center">20</td>
   <td align="center">21</td>
   <td align="center">22</td>
@@ -68,7 +96,7 @@
   </tr>
 
 <tr>
- <td align="center" style="color:red">26</td>
+ <th align="center" style="color:red">26</th>
   <td align="center">27</td>
   <td align="center">28</td>
   <td align="center">29</td>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            color: white;
+            margin: 5px;
+            /* display: inline-block; 이거 넣으면 박스들이 가로로 배치됨 */
+        }
+        .rel {
+            background-color: orangered;
+            position: relative;
+            top: 50px;
+            left: 50px;
+            /* 내가 원래 있어야 할 자리에서 톱, 레프트로 이만큼 이동한다는 의미 */
+            /* relative대신 absolute를 쓰면 절대적인 자리에서 가서 배치된다. */
+        }
+        .container {
+            width: 300px;
+            height: 200px;
+            background-image: url(Images/son3.jpg);
+            background-size: 100% 100%;
+                }
+                p {
+                    position: relative;
+                top: 50px;
+                left: 50px;
+                    }
+
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div class="rel">2</div>
+    <div class="container">3</div>
+    <p>쏘니</p>
+  
+    
+</body>
+</html>

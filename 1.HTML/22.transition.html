@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transition</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition-property: width, height;
+            transition-duration: 3.0s;
+            transition-timing-function: ease;
+            /* linear, ease 등 비교해보기 */
+        }
+        .square:hover {
+            width: 150px;
+            height: 150px;
+        }
+        .button {
+            color: black;
+            transition-property: color;
+            transition-duration: 2.0s;
+            transition-timing-function: ease-out;
+        }
+        .button:hover {
+            color: red;
+
+        }
+        .image {
+            width: 200px;
+            height: 200px;
+            transition-property: transform;
+            transition-duration: 2s;
+            transition-timing-function: ease-in-out;
+        }
+        .image:hover {
+            transform: rotate(180deg);
+        }
+        .grandient {
+            background-image: linear-gradient(to right, red, green);
+            transition-property: background-image;
+            transition-timing-function: ease; }
+        .grandient:hover {
+            background-image: linear-gradient(to right, red, green, blue)
+        }
+    </style>
+</head>
+<body>
+    <div class="square"></div>
+    <br>
+    <button class="button">Hover me</button>
+    <br>
+    <img src="Images/son1.jpg" class="image">
+    <br>
+    <div class="grandient">마우스 올리면 색상이 변합니다.</div>
+
+    
+</body>
+</html>

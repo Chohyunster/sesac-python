@@ -1,0 +1,13 @@
+#cat1 {
+    margin-right: 50px;
+}
+
+#cat2 {
+    margin-left: 100px
+}
+
+.container {
+border: 3px solid red;
+/* solid, dashed, dotted */
+width: 50%;
+}
