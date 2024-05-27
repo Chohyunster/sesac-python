@@ -4,7 +4,8 @@ class person:
     age = 0
     status1 = "playing"
 
-    def __init__(self, name, age): #이 객체의 초기화 함수
+    #class 내 첫 함수는 self로 받는다.
+    def __init__(self, name, age): #이 객체의 초기화 함수(optional)
         self.name = name
         self.age = age
 

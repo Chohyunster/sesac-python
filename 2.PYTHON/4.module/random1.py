@@ -44,11 +44,17 @@ print("원본 리스트2: ", numbers)
 print("석인 리스트: ", random_list_fruits(elements))
 print("섞인 리스트: ", random_list_numbers(numbers))
 
-#.미션5 랜덤으로 문자열 생성 : 영문 대문자 6자리
+print("여기서부터 숙제")
+#.미션5. 랜덤으로 문자열 생성 : 영문 대문자 6자리
+import string
+string_options = string.ascii_uppercase
+for i in range(6): 
+    result = random.choice(string_options)
+    print(result)
 
 
 #.미션6, 랜덤 초이스에서 가중치를 고려한 랜덤
 
 #.미션7, 랜덤 비밀번호 생성(대소문자, 숫자포함 6자리)
-
+sources = [string] + [numbers]
 #.미션8, 강력한 비밀번호 생성(대문자, 소문자, 숫자를 각각 1개이상 포함하는 8자리를 만들어라)

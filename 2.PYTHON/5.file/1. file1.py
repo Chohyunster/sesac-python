@@ -1,4 +1,7 @@
 # 파일 입출력을 할 때 사용하는 함수 : open
+# 읽기: "r"
+# 쓰기모드: "w"
+# 더할때: "a" (append의 약자)
 
 #file = open('example.txt', w) 라고 생각하면 됨. 좀 특이한 문법임: with ~ as ~
 # with open('example.txt', 'a') as file:

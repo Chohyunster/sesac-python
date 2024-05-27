@@ -9,9 +9,9 @@ def print_variable():
     print(b)
     print(c)
 
-    def print_operation():
-        print(a+b)
-        print(c+c)
+def print_operation():
+    print(a+b)
+    print(c+c)
 
 
 print_variable()
