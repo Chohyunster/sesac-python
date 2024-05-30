@@ -1,9 +1,12 @@
+import csv
+
 class DataPrinter:
-    def print_screen(data):
+    def print_screen(self, data):
         for d in data:
             print(d)
 
-    def print_file(data):
-        with open('output.txt', 'w', enconding = 'utf8') as file:
+    def print_file(self, data):
+        with open('output.txt', 'w', enconding = 'utf-8') as file:
+            writer = csv.writer(file)
             for d in data:
-                file.write(d)
+                writer.writerow(d)

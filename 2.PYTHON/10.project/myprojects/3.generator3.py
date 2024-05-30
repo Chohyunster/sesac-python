@@ -21,7 +21,7 @@ class DataGenerator:
 
     def generate_users(self):
         self.data = []
-        for _ in range (10):
+        for _ in range (self.numbers):
             id = self.id_gen.generate_id()
             name = self.name_gen.generate_name()
             birthdate = self.birth_gen.generate_birthdate()
@@ -33,6 +33,7 @@ class DataGenerator:
 
 #메인함수
 if __name__ == "__main__":
+    my_printer = DataPrinter()
     # print("입력인자 확인: 첫번쨰인자: {}, 두번째인자: {}".format(sys.argv[0], sys.argv[1]))
 
     if len(sys.argv) <= 1: #사용자 입력인자가 없으면...
@@ -46,13 +47,20 @@ if __name__ == "__main__":
     #우리가 원하는 데이터 형태 생성
     users1 = DataGenerator(int(num_data))
     users1.generate_users()
+    
+    my_printer.print_screen(users1.data)
+
+# sys.stdout = open('usersfile.csv', 'w', encoding='utf-8')
+# print(users1.generate_users())
+
+# sys.stdout.close()
+
 
     #우리가 원하는 데이터 출력 - 화면, 파일
-    my_printer = DataPrinter()
-    if len(sys.argv) == 3:
-        if sys.argv[2] == 'screen':
-            my_printer.print_screen(users1.data)
-        elif sys.argv[2] == 'file':
-            my_printer.print_file(users1.data)
-        else:
-            print('지원되지 않는 인자')
+    # if len(sys.argv) == 3:
+    #     if sys.argv[2] == 'screen':
+    #         my_printer.print_screen(users1.data)
+    #     elif sys.argv[2] == 'file':
+    #         my_printer.print_file(users1.data)
+    #     else:
+    #         print('지원되지 않는 인자')
