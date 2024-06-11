@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .gallery img {
+        height: 100px;
+        width: 100px;
+
+    }
+
+    #large-image {
+        margin: 20px auto; /*상하는 20, 좌우는 자동으로*/
+        max-width: 100%
+    }
+</style>
+<body>
+    <h1>Image Gallery</h1>
+    <div class="gallery">
+        <img src="./강아지1.jpg" id="img1">
+        <img src="./강아지2.jpg" id="img2">
+        <img src="./강아지3.jpg" id="img3">
+    </div>
+    <img id='large-image'>
+
+    <script>
+        const img1 = document.getElementById('img1');
+        const img2 = document.getElementById('img2');
+        const img3 = document.getElementById('img3');
+
+        img1.addEventListener("click", function() {
+            const largeImage = document.getElementById("large-image");
+            largeImage.src = img1.src;
+        })
+        img2.addEventListener("click", function() {
+            const largeImage = document.getElementById("large-image");
+            largeImage.src = img2.src;
+        })
+        img3.addEventListener("click", function() {
+            const largeImage = document.getElementById("large-image");
+            largeImage.src = img3.src;
+        })
+    
+    </script>
+</body>
+
+
+</html>

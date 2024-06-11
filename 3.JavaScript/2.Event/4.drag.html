@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dragItem {
+            width: 100px;
+            height: 100px;
+            background-color: #ffcc00;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        #dropZone {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #cccccc;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="dragItem">드래그미</div>
+    <div id="dropZone">여기로 드롭</div>
+
+    <script>
+        const dragItem = document.getElementById('dragItem');
+        const dropZone = document.getElementById('droptZone');
+
+        dragItem.addEventListener('dragstart', function(event) {
+            //커스텀 데이터 저장할 수 있음..
+            event.dataTransfer.setData('text', event.target.id);   //{'text' : 'dragItem'}
+            console.log('드래그 시작중..')
+        });
+
+        dropZone.addEventListener('dragover', function() {
+            event.preventDefault();
+            console.log('내 위로 드래그 발생중...');
+
+        });
+
+        dropZone.addEventListener('drop', function (event) {
+            event.preventDefault(); //드롭의 기본 기능 비활성화
+            const data = event.dataTransfer.getData('text') // text라는 키값에 할당된 값을 돌려줘.. {'text' : 'dragItem'}
+            const draggedElement = document.getElementById(data);
+            dropZone.appendChild(draggedElement);
+            console.log('여기에 드롭중.... 아이템 이름: ', data);
+        });
+
+
+    </script>
+</body>
+</html>

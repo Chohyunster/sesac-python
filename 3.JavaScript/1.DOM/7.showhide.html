@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #chatbot {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <botton onclick="toggleDiv()">SHOW/HIDE</botton>
+    <div id="chatbot">여기에 아무글자나 입력하세요</div>
+    <script>
+        function toggleDiv() {
+            var divElement = document.getElementById("chatbot");
+            console.log(divElement);
+            console.log(divElement.style);
+            consol.log(divElement.style.display)
+            
+            var displayStyle = window.getComputedStyle(divElement).display;
+            console.log(displayStyle)
+            if (displayStyle === "none") {
+                divElement.style.display = "block"
+            } else {
+                divElement.style.display = 'none'}
+
+        }
+    </script>
+</body>
+</html>

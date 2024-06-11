@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--for문을 돌면서 아래 users를 반복하며, 한줄한줄 테이블을 그린다.-->
+    <table border = '1'>    
+        <tr>
+            {%for header in headers %}
+                <th>{{header}}</th>
+            {% endfor %}
+        </tr>
+    
+
+    {% for user in users %}
+        <tr>
+            {% for value in user.values() %}
+            <td>{{ value }}</td>
+            {% endfor %}      
+        </tr>
+    {% endfor %}
+    </table>
+
+    <!--페이지 번호 출력하기-->
+    {% for pagenum in range(1, totalpages) %}
+    <a href="/{{pagenum}}">{{pagenum}}</a>
+    {% endfor %}
+
+
+    </body>
+</html>

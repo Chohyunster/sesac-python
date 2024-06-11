@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>테이블</h1>
+    <table>
+        <tr>
+            <td>셀1</td>
+            <td>셀1</td>
+            <td>셀1</td>
+            <td>셀1</td>
+        </tr>
+        <tr>
+            <td>셀1</td>
+            <td>셀1</td>
+            <td>셀1</td>
+            <td>셀1</td>
+        </tr>
+        <tr>
+            <td>셀1</td>
+            <td>셀1</td>
+            <td>셀1</td>
+            <td>셀1</td>
+        </tr>
+        <tr>
+            <td>셀1</td>
+            <td>셀1</td>
+            <td>셀1</td>
+            <td>셀1</td>
+        </tr>
+    </table>
+    
+    <button onclick="changeCellColor()">셀 색상 변경</button>
+    <button onclick="changeCellColorEven()">짝수 셀 색상 변경</button>
+    <button onclick="changeCellColorOdd()">홀수 셀 색상 변경</button>
+    <script>
+        function changeCellColor(){}
+            //모든 셀을선택해서 해당 셀의 배경 색상을 변경하시오.
+            var cells = document.getElementsByTagName("td");
+            
+
+            
+            //모든 셀을 반복적으로 순회하려면?
+            for (var i = 0; i < 9; i++) {
+                cells[i].style.backgroundColor = "lightblue";
+            }
+                //if(i%2 == 1) 이런 방법도 있다.
+
+            //짝수 셀
+        function changeCellColorEven() {
+            var cells = document.getElementsByTagName("td")
+            
+            for (var i = 1; i < 9; i+2) {
+                cells[i].style.backgroundColor = "lightyellow";
+            }
+        }
+
+        function changeCellColorOdd() {
+            var cells = document.getElementsByTagName("td")
+            
+            for (var i = 0; i < 9; i+=2) {
+                cells[i].style.backgroundColor = "pink";
+            }
+        }
+    </script>
+</body>
+</html>
+
+//i대신에 cell.length 넣어도 됨.

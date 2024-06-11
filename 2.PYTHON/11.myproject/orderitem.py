@@ -41,6 +41,7 @@ def denerate_orderitemdata():
     return orderitemdata
 
 result = denerate_orderitemdata()
+print(result)
 
 #===========오더아이템 리스트 csv로 출력====================
 import csv

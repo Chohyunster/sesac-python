@@ -53,6 +53,7 @@ def generate_orderdata():
     return orderdata
 
 result = generate_orderdata()
+print(result)
 
 #===========오더 리스트 csv로 출력====================
 import csv

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--for문을 돌면서 아래 users를 반복하며, 한줄한줄 테이블을 그린다.-->
+    <table border = '1'>    
+        <tr>
+        {%for header in headers %}
+            <th>{{header}}</th>
+        {% endfor %}
+        </tr>
+
+    {% for user in users[1:] %}
+        <tr>
+        {% for cell in user %}
+        <td>{{cell}}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+
+    </body>
+</html>

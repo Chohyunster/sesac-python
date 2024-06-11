@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: purple;
+
+        }
+
+        .searchform {
+            margin-bottom : 20px;
+
+        }
+
+        .searchform input[type='text']
+        .searchform input[type='number'] {
+            padding: 15px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .searchform input[type='submit'] {
+            padding: 10px 15px;
+            background-color: green;
+            border: non;
+            border-radius : 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .serchform input[type='submit']:hover {
+            background-color: lightgreen;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #867d7d;
+        }
+        tr:hover {
+            background-color: #ae7373;
+        }
+    </style>
+</head>
+<body>
+    <H1>헬로우 플라스크</H1>
+    <!-- 검색창 추가하기 -->
+    <form action="/user" method ='GET' class = 'searchform'>
+        <input type="text" name="name" placeholder="이름을 입력하시오">
+        <input type="number" name="age" placeholder="나이를 입력하시오">
+        <input type="submit" value="검색">
+    </form>
+
+
+    <!--테이블에 아래 사용자 정보추가하기-->
+    <table boder="1">
+        <tr class = myheader>
+            <th>name</th>
+            <th>age</th>
+            <th>phone</th>
+        </tr>
+        {% for u in users %}
+        <tr>
+            <td>{{ u['name']}}</td>
+            <td>{{ u['age']}}</td>
+            <td>{{ u['phone']}}</td>
+        </tr>
+        {% endfor %}
+        
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 색 바꾸기</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /*viewport height =브라우저 화면의 전체*/
+            margin: 0;
+        }
+        
+        button {
+            padding: 10px 20px;
+        }
+
+        #colorCode {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div id ="fullscreen"></div>
+    <button id="changeColor">Change background color</button>
+    <div id="colorCode"></div>
+    
+</body>
+
+
+<script>
+    function getRandomColor() {
+    const blue = Math.floor(Math.random()*266);
+    const red = Math.floor(Math.random()*266);
+    const green = Math.floor(Math.random()*266);
+    //console.log(blue, red, green);
+    return 'rgb(${blue}, ${red}, ${green})';
+    }
+
+    document.getElementById("changeColor").addEventListener("click", function() {
+        const randomColor = getRandomColor();
+
+        document.body.style.backgroundColor = randomColor;
+
+        document.getElementById("colorCode").textContent = randomColor; 
+        
+    });
+
+</script>
+
+</html>

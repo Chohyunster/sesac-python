@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userlist</title>
+</head>
+<body>
+    <div>
+        <h1>사용자 검색 페이지</h1>
+        <input type="number" id="userId" placeholder="사용자 번호 입력">
+        <button onclick="searchUser()">검색</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function searchUser() {
+            const userId = document.getElementById('userId').value //위의 돔에서 사용자 아이디 가져오기
+            const url = 'https://jsonplaceholder.typicode.com/users/' + userId;
+            const resultDiv = document.getElementById('result') //위의 돔에서 결과를 출력할 div가져오기
+
+            //fetch로 요청하기
+            fetch(url)
+                .then(function(response) {
+                            if (!response.ok) {
+                                throw new Error('네트워크 오류?!');           //new를 통해서 새로운 오류 객체를 만든다. 대문자로 된 것은 class.(클래스랑 안 헷갈리도록 함수는 소문자로 시작한다.)          
+                            }
+                            return response.json(); //응답이 있었으면, 제이슨으로 찍는다.
+                        }) //응답 받아서 확인하기 (response값을 확인)
+                
+                .then(function(user) {    //user는 response,json()이 promise에 담겨 있는데, 그게 처리가 끝났을 때 결과를 담는 것.
+                    displayUser(user)
+                }) //데이터 처리하기
+
+                .catch(function(error) {
+                    console.log('오류'+ error);
+                    }); //처리하다가 오류가 발생하면 오류처리
+
+        }
+
+        function displayUser(user) {
+            //어떻게 출력할지 처리하는 함수를 구현
+            //1.결과를 출력할 div가져오기
+            const resultDiv = document.getElementById('result');
+            //2.해당 div에다가 innerHTML = <p> 등등해서... 컨텐츠 채우기
+            resultDiv.innerHTML = `
+                <p><b>Name:</b> ${user.name}</p>
+                <p>Email: ${user.email}</p>
+                <p>Phone: ${user.phone}</p>
+                <p>Website: ${user.website}</p>
+            `
+            
+        }
+    </script>
+</body>
+</html>

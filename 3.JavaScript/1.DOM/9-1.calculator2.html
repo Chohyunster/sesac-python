@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, Ifr);
+            grid-gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .calculator input {
+            grid-column: span 4;
+            padding: 10px;
+            font-size: 18px;
+
+        }
+        .calculator button {
+            padding: 20px;
+            font-size: 30px;
+                   
+             
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input id = "result" type="text" readonly>
+        <button onclick="appendSymbol()">+</button>
+        <button onclick="appendSymbol()">-</button>
+        <button onclick="appendSymbol()">*</button>
+        <button onclick="appendSymbol()">/</button>
+        <button onclick="appendNumber(this.innerText)">7</button>
+        <button onclick="appendNumber(this.innerText)">8</button>
+        <button onclick="appendNumber(this.innerText)">9</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendNumber(this.innerText)">4</button>
+        <button onclick="appendNumber(this.innerText)">5</button>
+        <button onclick="appendNumber(this.innerText)">6</button>
+        <button onclick="clearResult()">C</button>
+        <button onclick="appendNumber(this.innerText)">1</button>
+        <button onclick="appendNumber(this.innerText)">2</button>
+        <button onclick="appendNumber(this.innerText)">3</button>
+        <button onclick="appendNumber(this.innerText)">0</button>
+    </div>
+    <script>
+        function appendNumber(number) {
+            document.getElementById('result').value += number;
+        }
+        function appendSymbol(symbol) {
+            input = document.getElementById('result');
+            lastinput = input.value.carAt(input.value.length -1);
+            // lastinput = input.value.substring(input.value.length -1);
+            // lastinput = input.value.slice(-1); 
+            // #이렇게 3줄 방법은 여러가지
+
+            //마지막으로 입력한 게 심볼 아닐 때만 심볼 입력 가능하도록... 
+            // if (lastinput !==symbol) {
+            //     input.value += symbol
+            // }
+            // if (lastinput !=="+" && lastInput !=="-" && lastInput !=="*" && lastInput !=="/") {
+            //     input.value += symbol; 
+            // }
+
+            if (!checkLastSymbol()) {
+                input.value += symbol;
+            }
+
+            if (isSymbol(symbol)) {
+                symbols = ["+", "-", "*", "/"];
+                checkInput = symbols.includes(symbol);
+                input = document.getElementById('result');
+                lastinput = input.value.carAt(input.value.length -1);
+
+                return checkInput;
+            }
+            //#사용성을 위하여 마지막 글자가 심볼일 경우 그걸 지우고 새로운 심볼을 추가한다.
+            if (checkLastSymbol()) {
+                input.value = input.value.slice(0, -1);
+                input.value += symbol;
+            }
+            else {
+                input.value += symbol;
+            }
+
+            //===> 
+            }
+
+
+
+
+                                function checkLastSymbol() {
+                                        input = document.getElementById('result');
+                                        lastinput = input.value.carAt(input.value.length -1);
+                                        if (isSymbol(lastInput)) {
+                                            return true;
+                                        }
+                                        else {
+                                            return false;
+                                        }
+                                }
+                                function isSymbol() {
+                                    symbols = ["+", "-", "*", "/"]
+                                    checkInput = symbols.includes(symbol);
+
+                                    return checkInput;
+                                }
+
+
+
+
+
+
+
+        //=============================================================
+        function clearResult() {
+            document.getElementById('result').value = ' '
+        }
+        function calculate() {
+            input = document.getElementById('result');
+            try {
+            result = eval(input.value);
+            input.value = result;
+            } catch (error) {
+                console.log(error);
+                input.value = 'ERROR';
+            }
+        }
+    </script>
+</body>
+</html>
+

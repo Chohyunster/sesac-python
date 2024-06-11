@@ -14,5 +14,5 @@ def generate_storename():
         storeaddress = file2.read().splitlines()
     ho = random.randint(1,10)
     ty = random.choice(storetype)
-    return f"{ty} {random.choice(storeaddress)} {ho}호점", ty
+    return f"{ty} {random.choice(storeaddress)} {ho}호점, {ty}"
 
