@@ -2,7 +2,7 @@ from flask import Flask, session
 
 app = Flask(__name__)
 
-app.secret_key = 'thisisascret' #아무 문자열이나 쓰면 도기ㅗ, 이게 실제로 세션데이터를 저장하는 암호키로 사용됨. 
+app.secret_key = 'thisisascret' #아무 문자열이나 쓰면 되고, 이게 실제로 세션데이터를 저장하는 암호키로 사용됨. 
 
 @app.route('/')
 def index():
@@ -11,6 +11,10 @@ def index():
     session['data'] = '1234'
     return '헬로우'
 
+@app.route('/set_session/<id>')
+def set_session_data(id):
+    session['username'] = id
+    return 'id가 저장되었습니다.'
 
 @app.route('/get_session')
 def get_session_data():
