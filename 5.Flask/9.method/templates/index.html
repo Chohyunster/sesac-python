@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>메인</h1>
+    {% if user %}
+        <h2>안녕하세요 {{ user.name }}님!</h2>
+    {% else %}
+        <form method="post"> <!--지정안하면 기본값은 GET방식 -> url창에 다 뜨게 된다.-->
+            아이디: <input type="text" name = 'id' placeholder="enter id"><br>
+            암호: <input type="password" name="password" placeholder="enter pw"><br>
+            <input type="submit" value="submit">
+        </form>
+
+        {% if error %}
+            <p style = 'color: red'>{{ error }}</p>
+        {% endif %}
+    {% endif %}
+    
+        
+</body>
+</html>
