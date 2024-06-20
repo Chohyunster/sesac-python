@@ -2,3 +2,8 @@
 
 #파이썬 자동생성파일
 __pycache__/
+
+#DB파일 예외처리
+*.db
+*.sqlite
+*.sqlite3

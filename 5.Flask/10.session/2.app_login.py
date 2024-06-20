@@ -46,7 +46,8 @@ def profile():
 @app.route('/logout')
 def logout():
     session.pop('user', None) #세션에서 유저 정보 삭제
-    return redirect(url_for('home')) #로그아웃 이후 홈 페이지로 보내주기 
-
+    return redirect(url_for('home')) #로그아웃 이후 홈 페이지로 보내주기 (return "로그아웃했습니다"만 해도 되지만, 사용성개선을 위해)
+# url_for('home') = home이라는 함수가 있는 url 주소를 가져와!라는 의미
+# redirect() : 그래서 위 주소로 보내줘.
 if __name__ == '__main__':
     app.run(debug=True)

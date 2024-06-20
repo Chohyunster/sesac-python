@@ -14,7 +14,7 @@ users = [
 def home():
     return jsonify(users)
 
-@app.route('/search')
+@app.route('/search')     #127.0.0.1:5000/search?name=xxx&age=xxx&phone=xxxx
 def search():
     name_query = request.args.get('name')  #/search?q=phython
     age_query = request.args.get('age')

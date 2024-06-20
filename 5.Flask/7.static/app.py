@@ -1,3 +1,6 @@
+#tempaltes라는 폴더 안에, 렌더링을 원하는 HTML 파일의 템플릿을 둔다.
+#static이라는 폴더 안에는 , 변경이 필요 없는, 최종 클라이언트에 주고 싶은 다양한 내용(img, css, js)을 넣어둔다.
+
 from flask import Flask, render_template, redirect, url_for
 
 app = Flask(__name__)
