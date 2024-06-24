@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Scrap</title>
+</head>
+<body>
+    <H1>Movie Ranking List</H1>
+    {%for m in movie %}
+        <li>순위: {{ m.rank }}
+            영화제목: {{ m.title}}
+            관객수: {{ m.audience }}
+        </li>
+    {% endfor %}
+</body>
+</html>

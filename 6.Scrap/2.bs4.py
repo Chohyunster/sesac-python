@@ -13,7 +13,7 @@ html_doc = """
 </body>
 </html>
 """
-soup = BeautifulSoup(html_doc, 'html.parser') #html.parser, lxml.parser
+soup = BeautifulSoup(html_doc, 'html.parser') #html.parser(기본 파서), lxml.parser(추가설치해야 하는 파서)
 print(html_doc)
 print(soup)
 
