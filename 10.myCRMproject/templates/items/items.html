@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items page</title>
+</head>
+<body>
+    <a href="/users">Users</a>
+    <a href="/orders">Order</a>
+    <a href="/orderitems">Order Item</a>
+    <a href="/items">Item</a>
+    <a href="/stores">Store</a>
+
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Unit_price</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% for pagenum in range(1, totalpages+1) %}
+    <a href="/items/{{ pagenum }}">{{ pagenum }}</a>
+    {% endfor %}
+</body>
+</html>

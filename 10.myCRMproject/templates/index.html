@@ -6,20 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <H1>상점 정보 CHC</H1>
+    <H1>Users_ CHC</H1>
+    <input type="text" id='searchname' placeholder="이름 입력"> 
+    <select>
+        <option value="None"></option>
+        <option value="female">여자</option>
+        <option value="male">남자</option>
+    </select>
+    <button onclick="search_users()">검색</button>
     <table border="1">
         <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>Name</th>
-            <th>Type</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Birthdate</th>
             <th>Address</th>
         </tr>
-        {% for store in stores %}
+        {% for user in users %}
         <tr>
-            <td>{{ store[0] }}</td>
-            <td>{{ store[1] }}</td>
-            <td>{{ store[2] }}</td>
-            <td>{{ store[3] }}</td>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}</td>
+            <td>{{ user[4] }}</td>
+            <td>{{ user[5] }}</td>
         </tr>
         {% endfor %}
     </table>

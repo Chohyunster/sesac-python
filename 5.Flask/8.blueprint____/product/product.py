@@ -2,15 +2,15 @@ from flask import Blueprint, render_template
 
 product_app = Blueprint('product', __name__)
 
-@product_app.route('/') #app에 등록할 때 정의한 prefix의 하위 디렉토리
+@product_app.route('/') # app에 등록할때 정의한 prefix의 하위 디렉토리
 def home():
-    return render_template('/product/index.html')
+    return render_template('product/index.html')
 
-@product_app.route('/fruit')
+@product_app.route('/fruit') # app에 등록한 prefix의 하위
 def fruit():
-    return render_template('/product/fruit.html')
+    return render_template('product/fruit.html')
 
 @product_app.route('/drink')
-def fruit():
-    return render_template('/product/drink.html')
+def drink():
+    return render_template('product/drink.html')
 

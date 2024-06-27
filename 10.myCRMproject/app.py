@@ -1,21 +1,24 @@
-#FE + BE
 from flask import Flask, render_template
-import sqlite3
+from admin.admin import admin_app
+from users.users import users_app
+from orders.orders import orders_app
+from orderitems.orderitems import orderitems_app
+from items.items import items_app
+from stores.stores import stores_app
 
 app = Flask(__name__)
 
-DATABASE = './newcrmdb.db'
+app.register_blueprint(admin_app, url_prefix='/admin')
+app.register_blueprint(users_app, url_prefix='/users')
+app.register_blueprint(orders_app, url_prefix='/orders')
+app.register_blueprint(orderitems_app, url_prefix='/orderitems')
+app.register_blueprint(items_app, url_prefix='/items')
+app.register_blueprint(stores_app, url_prefix='/stores')
 
 @app.route('/')
-def index():
-    #데이터베이스 연결해서 데이터 가져오기#
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM stores')  #WHERE name LIKE ?', ('스타벅스%', ) 이걸 붙이면 스타벅스 지점만 나온다.
-    stores = cur.fetchall()
-    conn.close()
-    return render_template('index.html', stores=stores)
+def home():
+    return render_template('/admin/admin.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(debug=True)
 
