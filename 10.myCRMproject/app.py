@@ -17,7 +17,7 @@ app.register_blueprint(stores_app, url_prefix='/stores')
 
 @app.route('/')
 def home():
-    return render_template('/admin/admin.html')
+    return render_template('admin.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

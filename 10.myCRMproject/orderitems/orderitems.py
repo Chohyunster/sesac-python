@@ -1,5 +1,6 @@
 from flask import Flask, Blueprint, render_template
 import sqlite3, math
+from database import get_query
 
 app = Flask(__name__)
 
@@ -28,7 +29,16 @@ def index(page=1):
     totalpages = math.ceil(len(orderitem_data) / per_page)
 
     return render_template('orderitems/orderitems.html', page=page, orderitems=orderitem_data[(page-1)*per_page:page*per_page], totalpages=totalpages) 
-    
+
+@orderitems_app.route("/orderitem_detail/<id>")
+def orderitem_detail(id):
+    query = '''SELECT oi.Id AS orderitem_id, o.Id AS order_id, i.Id AS item_id, i.name AS item_name
+            From orders o JOIN orderitems oi ON o.id = oi.OrderId
+            JOIN items i ON oi.ItemId = i.Id
+            WHERE o.id = ?'''
+    orderitem_detail = get_query(query, (id, ))
+
+    return render_template('orders/orderdetail.html', orderitem_detail=orderitem_detail)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

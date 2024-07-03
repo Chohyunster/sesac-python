@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stores page</title>
+</head>
+<body>
+    <a href="/users">Users</a>
+    <a href="/orders">Order</a>
+    <a href="/orderitems">Order Item</a>
+    <a href="/items">Item</a>
+    <a href="/stores">Store</a>
+
+    <h2>매장 정보</h2>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <td>{{ store['name'] }}</td>
+            <td>{{ store['type'] }}</td>
+            <td>{{ store['address'] }}</td>
+        </tr>
+    </table>
+
+    <h2>월간 매출액</h2>
+    <table border="1">
+        <tr>
+            <th>month</th>
+            <th>revenue</th>
+            <th>count</th>
+        </tr>
+        {% for salesinfo in salesinfo %}
+        <tr>
+            <td>{{ salesinfo['yearmonth'] }}</td>
+            <td>{{ salesinfo['revenue'] }}</td>
+            <td>{{ salesinfo['count'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>단골 고객</h2>
+    <table border="1">
+        <tr>
+            <th>user_id</th>
+            <th>name</th>
+            <th>frequency</th>
+        </tr>
+        {% for regularinfo in regularinfo %}
+        <tr>
+            <td>{{ regularinfo['userid'] }}</td>
+            <td>{{ regularinfo['username'] }}</td>
+            <td>{{ regularinfo['frequency'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

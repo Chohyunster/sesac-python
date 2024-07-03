@@ -1,0 +1,51 @@
+{% extends "admin.html" %}
+
+{% block title %}User Detail{% endblock %}
+
+{% block content %}
+    <H2>고객 정보</H2>
+  
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Birthdate</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <td>{{ user['name'] }}</td>
+            <td>{{ user['gender'] }}</td>
+            <td>{{ user['age'] }}</td>
+            <td>{{ user['birthdate'] }}</td>
+            <td>{{ user['address'] }}</td>
+        </tr>
+    </table>
+
+    <H2>주문 정보</H2>
+    		
+    <table border="1">
+        <tr>
+            <th>order id</th>
+            <th>purchased date</th>
+            <th>purchased location</th>
+        </tr>
+        {%for orderinfo in orderinfo %}
+        <tr>
+            <td>{{ orderinfo['orderid'] }}</td>
+            <td>{{ orderinfo['orderat'] }}</td>
+            <td><a href="../stores/{{ orderinfo['storeid'] }}">{{ orderinfo['storeid'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <H2>자주 방문한 매장 TOP5</H2>
+    {% for visitinfo in visitinfo %}
+    <H5>{{ visitinfo['storename'] }}({{visitinfo['visits']}}번 방문)</H5>
+    {% endfor %}
+    <H2>자주 주문한 상품명 TOP5</H2>
+    {% for iteminfo in iteminfo %}
+    <H5>{{ iteminfo['itemname'] }}({{iteminfo['frequency']}}번 주문)</H5>
+    {% endfor %}
+
+{% endblock %}

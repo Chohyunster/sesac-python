@@ -1,0 +1,37 @@
+{% extends "admin.html" %}
+
+{% block title %}Item Detail{% endblock %}
+
+{% block content %}
+    <H2>상품 정보</H2>
+  
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>unitprice</th>
+        </tr>
+        <tr>
+            <td>{{ item['name'] }}</td>
+            <td>{{ item['unitprice'] }}</td>
+        </tr>
+    </table>
+
+    <H2>월간 매출액</H2>
+    <table border="1">
+        <tr>
+            <th>month</th>
+            <th>total revenue</th>
+            <th>item count</th>
+        </tr>
+        {% for itemsalesinfo in itemsalesinfo %}
+        <tr>
+            <td>{{ itemsalesinfo['yearmonth'] }}</td>
+            <td>{{ itemsalesinfo['revenue'] }}</td>
+            <td>{{ itemsalesinfo['itemcount'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <H2>월별 매출액 그래프</H2>
+
+{% endblock %}

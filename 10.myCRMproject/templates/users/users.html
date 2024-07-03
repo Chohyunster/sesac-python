@@ -35,22 +35,20 @@
             <th>Gender</th>
             <th>Age</th>
             <th>Birthdate</th>
-            <th>Address</th>
         </tr>
         {% for user in users %}
         <tr>
-            <td>{{ user[0] }}</td>
+            <td><a href="./{{ user[0] }}">{{ user[0] }}</td>
             <td>{{ user[1] }}</td>
             <td>{{ user[2] }}</td>
             <td>{{ user[3] }}</td>
             <td>{{ user[4] }}</td>
-            <td>{{ user[5] }}</td>
         </tr>
         {% endfor %}
     </table>
 
     {% for pagenum in range(1, totalpages) %}
-    <a href="/users/{{ pagenum }}">{{ pagenum }}</a>
+    <a href="./{{ pagenum }}">{{ pagenum }}</a>
     {% endfor %}
 </body>
 </html>

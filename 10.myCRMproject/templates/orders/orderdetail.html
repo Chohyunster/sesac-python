@@ -1,0 +1,41 @@
+{% extends "admin.html" %}
+
+{% block title %}Order Detail{% endblock %}
+
+{% block content %}
+    <H2>상품 주문 정보</H2>
+  
+    <table border="1">
+        <tr>
+            <th>orderitem_id</th>
+            <th>order_id</th>
+            <th>item_id</th>
+            <th>item_name</th>
+        </tr>
+        {% for item_order_info in item_order_info %}
+        <tr>
+            <td>{{ item_order_info['orderitem_id'] }}</td>
+            <td>{{ item_order_info['order_id'] }}</td>
+            <td><a href="{{ url_for('items.itemdetail', id=item_order_info['item_id']) }}">{{ item_order_info['item_id'] }}</td>
+            <td>{{ item_order_info['item_name'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- <H2>주문 정보</H2>
+  
+    <table border="1">
+        <tr>
+            <th>order_id</th>
+            <th>order_at</th>
+            <th>store_id</th>
+            <th>user_id</th>
+        </tr>
+        <tr>
+            <td>{{ order_detail['order_id'] }}</td>
+            <td>{{ order_detail['order_at'] }}</td>
+            <td>{{ order_detail['store_id'] }}</td>
+            <td>{{ order_detail['user_id'] }}</td>
+         </tr>
+    </table> -->
+{% endblock %}
