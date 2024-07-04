@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users page</title>
-</head>
-<body>
-    <H1>Users_ CHC</H1>
-    <a href="/users">Users</a>
-    <a href="/orders">Order</a>
-    <a href="/orderitems">Order Item</a>
-    <a href="/items">Item</a>
-    <a href="/stores">Store</a>
+{% extends "admin.html" %}
+
+{% block title %}Order Detail{% endblock %}
+
+{% block content %}
+
 
     <form action="/users" method="POST">
         <label for="name">Name:</label>
-        <input type="text" name='name' placeholder="이름을 입력하세요" value="{{ search_name or '' }}">
-        <!-- value 왜 동작 안하지? -->
+        <input type="text" name='name' placeholder="이름을 입력하세요" value="{{ search_name }}">
 
         <label for="gender">Gender:</label>
         <select id="gender" name="gender">
@@ -51,4 +42,5 @@
     <a href="./{{ pagenum }}">{{ pagenum }}</a>
     {% endfor %}
 </body>
+{% endblock %}
 </html>

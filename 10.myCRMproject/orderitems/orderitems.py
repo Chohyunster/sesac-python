@@ -38,7 +38,7 @@ def orderitem_detail(id):
             WHERE o.id = ?'''
     orderitem_detail = get_query(query, (id, ))
 
-    return render_template('orders/orderdetail.html', orderitem_detail=orderitem_detail)
+    return render_template('orderitems/orderitemdetail.html', orderitem_detail=orderitem_detail)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

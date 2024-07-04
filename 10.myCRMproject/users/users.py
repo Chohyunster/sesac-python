@@ -40,7 +40,7 @@ def index(page=1):
         filtered_user = [u for u in filtered_user if search_gender == u[2].lower()]
     
     
-    return render_template('users/users.html', page=page, users=filtered_user[(page-1)*per_page:page*per_page], totalpages=totalpages) 
+    return render_template('users/users.html', page=page, users=filtered_user[(page-1)*per_page:page*per_page], totalpages=totalpages, search_name=search_name, search_gender=search_gender) 
     
 @users_app.route("/<id>")
 def user_detail(id):

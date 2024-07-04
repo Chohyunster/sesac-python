@@ -32,7 +32,7 @@
         </tr>
         {%for orderinfo in orderinfo %}
         <tr>
-            <td>{{ orderinfo['orderid'] }}</td>
+            <td><a href="../orderitems/{{ orderinfo['orderid'] }}">{{ orderinfo['orderid'] }}</td>
             <td>{{ orderinfo['orderat'] }}</td>
             <td><a href="../stores/{{ orderinfo['storeid'] }}">{{ orderinfo['storeid'] }}</td>
         </tr>

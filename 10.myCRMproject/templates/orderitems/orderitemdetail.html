@@ -15,8 +15,8 @@
         {% for orderitem_detail in orderitem_detail %}
         <tr>
             <td>{{ orderitem_detail['orderitem_id'] }}</td>
-            <td><a href="/orders/{{ orderitem_detail['order_id'] }}">{{ orderitem_detail['order_id'] }}</td>
-            <td><a href = "/items/{{ orderitem_detail['item_id'] }}">{{ orderitem_detail['item_id'] }}</td>
+            <td><a href="../orders/{{ orderitem_detail['order_id'] }}">{{ orderitem_detail['order_id'] }}</td>
+            <td><a href="../items/{{ orderitem_detail['item_id'] }}">{{ orderitem_detail['item_id'] }}</td>
             <td>{{ orderitem_detail['item_name'] }}</td>
         </tr>
         {% endfor %}

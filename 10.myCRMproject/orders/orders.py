@@ -32,19 +32,27 @@ def index(page=1):
     
 @orders_app.route('/<id>')
 def order_detail(id):
-    query = '''SELECT 
-    id AS order_id, orderat AS order_at, storeid AS store_id, userid AS user_id
+    # query = '''SELECT o.id AS order_id, orderat AS order_at, storeid AS store_id, userid AS user_id
+    # FROM orders o
+    # WHERE o.id = ?'''
+    # order_detail = get_query(query, (id, ))
+
+    query = '''SELECT o.id AS order_id, oi.Id AS orderitem_id, o.orderat AS order_at, o.storeid AS store_id, o.userid AS user_id, i.Id AS item_id, i.name AS item_name
     FROM orders o
+    JOIN orderitems oi ON o.id = oi.OrderId
+    JOIN items i ON oi.ItemId = i.Id
     WHERE o.id = ?'''
     order_detail = get_query(query, (id, ))
 
-    query = '''SELECT oi.Id AS orderitem_id, o.Id AS order_id, i.Id AS item_id, i.name AS item_name
-            From orders o JOIN orderitems oi ON o.id = oi.OrderId
-            JOIN items i ON oi.ItemId = i.Id
-            WHERE o.id = ?'''
-    item_order_info = get_query(query, (id, ))
 
-    return render_template('orders/orderdetail.html', order_detail=order_detail, item_order_info=item_order_info)
+    # query = '''SELECT oi.Id AS orderitem_id, o.Id AS order_id, i.Id AS item_id, i.name AS item_name
+    #         From orders o JOIN orderitems oi ON o.id = oi.OrderId
+    #         JOIN items i ON oi.ItemId = i.Id
+    #         WHERE o.id = ?'''
+    # item_order_info = get_query(query, (id, ))
+
+    return render_template('orders/orderdetail.html', order_detail=order_detail)
+# , item_order_info=item_order_info)
 
 if __name__ == "__main:__":
     app.run(host="0.0.0.0", debug=True)
