@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <canvas id="mycanvas" width="600" height="400"></canvas>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const canvas = document.getElementById('mycanvas')
+        const ctx = canvas.getContext('2d');
+        //ctx는 db의 cursor와 같은 것... 
+        //canvas: 그림 그리는 공간
+        //context: canvas.getContext('2d')
+
+        const player = {
+            x: 0,
+            y: 0,
+            speed: 10,
+            directionX: 0
+        };
+
+        const meteor = {
+            x: 200, y: 0, speed: 2
+        }
+        //js에서는 이 형태를 object라고 부름. player.x, player.y, plater.speed
+
+        const image = new Image();
+        image.src = 'spaceship.png';
+        image.onload = function () {
+            player.x = (canvas.width - image.width) /2;
+            player.y = (canvas.height - image.height);
+            draw();
+            // ctx.drawImage(image, 0, 0); // (image, x, y) 캔바스의 가장 좌상단
+        }
+
+        const meteorImage = new Image()
+        meteorImage.src = 'meteor.png'
+        meteorImage.onload = function() {
+            draw();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(image, player.x, player.y);
+            ctx.drawImage(meteorImage, meteor.x, meteor.y);
+
+            //위치 업데이트
+            player.x += player.speed * player.directionX;
+
+            //운석 위치 업데이트 (운석이 아래로 이동하도록)
+            meteor.y += meteor.speed;
+
+            if (meteor.y > canvas.height) {
+                meteor.y = 0;
+                meteor.x = Math.random() * (canvas.width - meteorImage.width);
+            }
+
+            //충돌로직 구현하기
+            if ((meteor.x > player.x) && (meteor.y < player.x - image.width) && (meteor.y > player.y - image.height) && (meteor.y < player.y)) {
+                console.log('충돌!')
+            }
+
+            //위치를 바운더리 밖으로 나가지 못하도록
+            if (player.x < 0) {
+                player.x = 0;
+            }
+
+            if (player.x > canvas.width - image.width) {
+                player.x = canvas.width - image.width;
+            }
+
+            requestAnimationFrame(draw); //재귀함수로, 내가 나를 부르는 것
+        }
+        //키보드 이벤트 추가
+        window.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    player.directionX = -1;
+                    // player.x -= player.speed
+                    break;
+                case 'ArrowRight':
+                    player.directionX = +1;
+                    // player.x += player.speed
+                    break;
+            }
+        })
+    </script>
+
+</body>
+</html>
