@@ -17,12 +17,13 @@ params = {
     'maxResults' : 10,
     'key' : API_KEY,
 }
-
+#요청 및 결과 받아오기
 response = requests.get(url, params)
 response.raise_for_status()
-
 data = response.json()
 # print(data)
+
+#필요한 데이터 가공
 for item in data['items']:
     title = item['snippet']['title']
     video_id = item['id']['videoId']

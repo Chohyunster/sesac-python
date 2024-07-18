@@ -14,10 +14,12 @@ params = {
     'appid': 'OW_API_KEY'
 }
 
+#요청 및 결과 받아오기
 response = requests.get(url, params=params)
 response.raise_for_status()
-
 weather_data = response.json()
+
+#필요한 데이터 가공
 city_name = weather_data['name']
 temperature = weather_data['main']['temp']
 description = weather_data['weather'][0]['description']
